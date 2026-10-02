@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Comma Separated List</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        input {
+            padding: 10px;
+            width: 250px;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        ul {
+            text-align: left;
+            width: 300px;
+            margin: 20px auto;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Comma Separated List</h1>
+
+    <input type="text" id="myInput" placeholder="apple, banana, mango">
+
+    <button id="submitButton">Submit</button>
+
+    <ul id="myList"></ul>
+
+
+    <script>
+        let input = document.getElementById("myInput");
+        let button = document.getElementById("submitButton");
+        let list = document.getElementById("myList");
+
+        button.addEventListener("click", function () {
+
+            let text = input.value;
+
+            let items = text.split(",");
+
+            list.innerHTML = "";
+
+            for (let i = 0; i < items.length; i++) {
+
+                let item = items[i].trim();
+
+                if (item != "") {
+
+                    let listItem = document.createElement("li");
+
+                    listItem.textContent = item;
+
+                    list.appendChild(listItem);
+                }
+            }
+        });
+
+    </script>
+
+</body>
+</html>
